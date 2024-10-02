@@ -1,6 +1,6 @@
 {
   "name": "setup-ts-eslint-prettier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npx script that will install the necessary dependencies and create the necessary files to setup TypeScript, TS-ESLint, and prettier.",
   "main": "index.js",
   "bin": {
