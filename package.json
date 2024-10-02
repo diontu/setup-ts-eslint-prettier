@@ -20,5 +20,10 @@
   "files": [
     "index.js",
     "templates/"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:diontu/setup-ts-eslint-prettier.git"
+  },
+  "homepage": "https://github.com/diontu/setup-ts-eslint-prettier"
 }
