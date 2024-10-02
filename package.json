@@ -1,0 +1,24 @@
+{
+  "name": "setup-ts-eslint-prettier",
+  "version": "1.0.0",
+  "description": "npx script that will install the necessary dependencies and create the necessary files to setup TypeScript, TS-ESLint, and prettier.",
+  "main": "index.js",
+  "bin": {
+    "setup-ts-eslint-prettier": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npx",
+    "cli",
+    "copy",
+    "file"
+  ],
+  "author": "Dion Tu",
+  "license": "ISC",
+  "files": [
+    "index.js",
+    "templates/"
+  ]
+}

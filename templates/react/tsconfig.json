@@ -1,0 +1,8 @@
+{
+    "extends": "./node_modules/@tsconfig/recommended/tsconfig.json",
+    "compilerOptions": {
+        "jsx": "react-jsx"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["**/*.d.ts", "node_modules/**/*", "dist/**/*", "build/**/*"]
+}
