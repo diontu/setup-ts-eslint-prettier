@@ -11,21 +11,48 @@ const args = process.argv.slice(2); // Skip the first two elements (node and scr
 // Check if the `--react` flag is passed
 const isReactEnabled = args.includes("--react");
 
-const dependencies = [
-  "@tsconfig/recommended",
+const TS_CONFIG_DEPENDENCIES = ["@tsconfig/recommended", "typescript"];
+const PRETTIER_CONFIG_DEPENDENCIES = ["prettier"];
+const TSESLINT_CONFIG_DEPENDENCIES = [
   "eslint",
   "@eslint/js",
   "@types/eslint__js",
-  "prettier",
-  "typescript",
   "typescript-eslint",
+  "typescript",
 ];
-const reactDependencies = ["@types/react", "eslint-plugin-react"];
+const REACTT_SESLINT_CONFIG_DEPENDENCIES = [
+  "@types/react",
+  "eslint-plugin-react",
+  "eslint-plugin-react-hooks",
+];
 
-const combinedDependencies = [
-  ...dependencies,
-  ...(isReactEnabled ? reactDependencies : []),
-];
+const dependencies = new Set([
+  ...TS_CONFIG_DEPENDENCIES,
+  ...PRETTIER_CONFIG_DEPENDENCIES,
+  ...TSESLINT_CONFIG_DEPENDENCIES,
+  ...(isReactEnabled ? REACTT_SESLINT_CONFIG_DEPENDENCIES : []),
+]);
+
+// const dependencies = [
+//   "@tsconfig/recommended",
+//   "eslint",
+//   "@eslint/js",
+//   "@types/eslint__js",
+//   "prettier",
+//   "typescript",
+//   "typescript-eslint",
+// ];
+// const reactDependencies = [
+//   "@types/react",
+//   "eslint-plugin-react",
+//   "eslint-plugin-react-hooks",
+// ];
+
+// const combinedDependencies = [
+//   ...dependencies,
+//   ...(isReactEnabled ? reactDependencies : []),
+// ];
+const dependenciesArray = Array.from(dependencies);
 
 const filesToCopy = ["tsconfig.json", "eslint.config.mjs", ".prettierrc"];
 
@@ -36,12 +63,12 @@ const rl = readline.createInterface({
 
 // Prompt the user for confirmation
 rl.question(
-  `Do you want to install ${combinedDependencies.join(
+  `Do you want to install ${dependenciesArray.join(
     ", "
   )} as devDependencies? (y/n) `,
   (answer) => {
     if (answer.toLowerCase() === "y") {
-      installPackages(combinedDependencies);
+      installPackages(dependenciesArray);
     } else {
       console.log("Skipping package installation.");
     }
